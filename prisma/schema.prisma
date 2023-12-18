@@ -1,0 +1,87 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Additional {
+  id        Int      @id @default(autoincrement())
+  name      String   @unique
+  image     String
+  price     Int
+  info      String
+  inOrder   Boolean? @default(false)
+  productId Int
+  createdAt DateTime @default(now()) @db.Timestamp(6)
+  updatedAt DateTime @updatedAt @db.Timestamp(6)
+  products  Product  @relation(fields: [productId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@map("additionals")
+}
+
+model Category {
+  id        Int       @id @default(autoincrement())
+  name      String
+  image     String
+  createdAt DateTime  @default(now()) @db.Timestamp(6)
+  updatedAt DateTime  @updatedAt @db.Timestamp(6)
+  products  Product[]
+
+  @@map("categories")
+}
+
+model Order {
+  id        Int      @id @default(autoincrement())
+  note      Int
+  code      Int      @default(autoincrement())
+  quantity  Int
+  productId Int
+  userId    Int
+  createdAt DateTime @default(now()) @db.Timestamp(6)
+  updatedAt DateTime @updatedAt @db.Timestamp(6)
+  products  Product  @relation(fields: [productId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  users     User     @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@map("orders")
+}
+
+model Payment {
+  id        Int      @id @default(autoincrement())
+  code      Int      @unique @default(autoincrement())
+  total     Int?
+  status    String?  @default("PENDING")
+  createdAt DateTime @default(now()) @db.Timestamp(6)
+  updatedAt DateTime @updatedAt @db.Timestamp(6)
+
+  @@map("payments")
+}
+
+model Product {
+  id          Int          @id @default(autoincrement())
+  name        String
+  image       String
+  banner      String
+  price       Int
+  info        String
+  categoryId  Int
+  createdAt   DateTime     @default(now()) @db.Timestamp(6)
+  updatedAt   DateTime     @updatedAt @db.Timestamp(6)
+  additionals Additional[]
+  orders      Order[]
+  categories  Category     @relation(fields: [categoryId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@map("products")
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  name      String
+  createdAt DateTime @default(now()) @db.Timestamp(6)
+  updatedAt DateTime @updatedAt @db.Timestamp(6)
+  orders    Order[]
+
+  @@map("users")
+}
