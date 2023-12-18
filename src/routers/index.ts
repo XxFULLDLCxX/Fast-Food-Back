@@ -1,1 +1,1 @@
-export * from './orders-router'
+export * from './orders-router';

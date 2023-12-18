@@ -4,9 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint .",
+    "lint:staged": "lint-staged",
+    "postlint": "echo 'Well done! Your code has no linting errors.'",
+
+    "test": "npm run test:load-envs -- jest --passWithNoTests --runInBand --config jest.config.ts",
+    "test:load-envs": "dotenv -e .env.test --",
     "dev:load-envs": "dotenv -e .env.development --",
-    "dev": "npm run dev:load-envs -- nodemon --exec node -r ts-node/register src/server.ts"
+    "dev": "npm run dev:load-envs -- nodemon --exec node -r ts-node/register src/server.ts",
+    "prepare": "husky install"
   },
   "keywords": [],
   "author": "",
@@ -21,8 +27,18 @@
     "prisma": "^5.7.1"
   },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^6.15.0",
+    "@typescript-eslint/parser": "^6.15.0",
     "dotenv-cli": "^7.3.0",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-import-resolver-typescript": "^3.6.1",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-prettier": "^5.0.1",
+    "husky": "^8.0.0",
+    "lint-staged": "^15.2.0",
     "nodemon": "^3.0.2",
+    "prettier": "^3.1.1",
     "ts-node": "^10.9.2",
     "ttsc": "^0.3.1",
     "typescript": "^5.3.3",
