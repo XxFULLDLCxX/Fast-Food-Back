@@ -1,0 +1,23 @@
+{
+  "display": "Node 21",
+  "_version": "21.0.0",
+  "compilerOptions": {
+    "lib": ["es2023"],
+    "target": "es2022",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "CommonJS",
+    "moduleResolution": "Node10",
+    "baseUrl": "src",
+    "paths": {
+      "@/*": ["*"]
+    },
+    "plugins": [{ "transform": "typescript-transform-paths" }]
+  },
+  "ts-node": {
+    "esm": true,
+    "transpileOnly": true,
+    "require": ["typescript-transform-paths/register"]
+  }
+}
