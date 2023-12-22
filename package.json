@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "ttsc -p tsconfig.build.json",
+    "start": "node dist/src/server.js",
     "lint": "eslint .",
     "lint:staged": "lint-staged",
     "postlint": "echo 'Well done! Your code has no linting errors.'",
