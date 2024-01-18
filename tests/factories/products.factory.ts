@@ -9,7 +9,8 @@ export function generateProduct(categoryId: number) {
     image: 'https://fakeimg.pl/200x200/?text=Product&font=lobster',
     banner: 'https://fakeimg.pl/200x200/?text=ProductBanner&font=lobster',
     price: Number(faker.commerce.price()),
-    info: faker.lorem.lines(1),
+    teaser: faker.lorem.lines(1),
+    details: faker.lorem.lines(3),
     categoryId,
   };
   return result;
