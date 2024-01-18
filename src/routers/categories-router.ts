@@ -3,6 +3,8 @@ import { Router } from 'express';
 
 const categoriesRouter = Router();
 
-categoriesRouter.get('/', categoriesController.get);
+categoriesRouter
+  .get('/', categoriesController.getMany)
+  .get('/:id', categoriesController.getFirst);
 
 export default categoriesRouter;
