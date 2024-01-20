@@ -14,8 +14,13 @@ const read = async (query: ProductQuery) => {
   return products;
 };
 
+const readAdditionals = async (id: number) => {
+  const product = await productsRepository.findFirstByIdIncludeAdditionals(id);
+  return product.additionals;
+}
+
 const productService = {
-  read,
+  read, readAdditionals
 };
 
 export default productService;
