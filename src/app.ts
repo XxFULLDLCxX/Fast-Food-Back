@@ -6,6 +6,7 @@ import productsRouter from './routers/products-router';
 import errorHandler from './middlewares/error-handler';
 import orderRouter from './routers/orders-router';
 import paymentRouter from './routers/payments-router';
+import userRouter from './routers/users-router';
 
 const app = express();
 app.use(cors());
@@ -17,6 +18,7 @@ app.use('/categories', categoriesRouter);
 app.use('/products', productsRouter);
 app.use('/orders', orderRouter);
 app.use('/payments', paymentRouter);
+app.use('/users', userRouter);
 app.use(errorHandler);
 
 export default app;

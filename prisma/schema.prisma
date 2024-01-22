@@ -98,7 +98,7 @@ model Product {
 
 model User {
   id        Int       @id @default(autoincrement())
-  name      String
+  name      String    @default("")
   createdAt DateTime  @default(now()) @db.Timestamp(6)
   updatedAt DateTime  @updatedAt @db.Timestamp(6)
   payments  Payment[]
