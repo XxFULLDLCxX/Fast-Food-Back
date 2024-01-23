@@ -1,6 +1,6 @@
-import { Request, Response } from "express";
-import orderService from "@/services/orders-service";
-import { OrderAdditionalsParams, OrderParams } from "@/utils/protocols/orders";
+import { Request, Response } from 'express';
+import orderService from '@/services/orders-service';
+import { OrderAdditionalsParams, OrderParams } from '@/utils/protocols/orders';
 
 async function get(_req: Request, res: Response) {
   const result = await orderService.read();
@@ -8,9 +8,12 @@ async function get(_req: Request, res: Response) {
 }
 
 async function getByCode(req: Request, res: Response) {
-  const result = await orderService.readByCode(
-    Number(req.params.code) as number,
-  );
+  const result = await orderService.readByCode(Number(req.params.code) as number);
+  return res.send(result);
+}
+
+async function getByOrderIdAdditionals(req: Request, res: Response) {
+  const result = await orderService.readAdditionals(Number(req.params.orderId) as number);
   return res.send(result);
 }
 
@@ -20,12 +23,10 @@ async function post(req: Request, res: Response) {
 }
 
 async function postAdditional(req: Request, res: Response) {
-  const result = await orderService.createAdditional(
-    req.body as OrderAdditionalsParams,
-  );
+  const result = await orderService.createAdditional(req.body as OrderAdditionalsParams);
   return res.send(result);
 }
 
-const ordersController = { get, post, getByCode, postAdditional };
+const ordersController = { get, post, getByCode, getByOrderIdAdditionals, postAdditional };
 
 export default ordersController;
