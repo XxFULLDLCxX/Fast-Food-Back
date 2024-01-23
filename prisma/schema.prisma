@@ -35,7 +35,7 @@ model Category {
 
 model Order {
   id        Int      @id @default(autoincrement())
-  note      Int
+  note      String
   code      Int      @default(autoincrement())
   quantity  Int
   
@@ -53,7 +53,7 @@ model Order {
 
 model OrderAdditional {
   id           Int        @id @default(autoincrement())
-  orderId      Int
+  orderId      Int        
   additionalId Int
   createdAt    DateTime   @default(now()) @db.Timestamp(6)
   updatedAt    DateTime   @updatedAt @db.Timestamp(6)

@@ -8,7 +8,9 @@ async function get(_req: Request, res: Response) {
 }
 
 async function post(req: Request, res: Response) {
-  const result = await paymentService.upsert(req.body as PaymentParams)
+  const result = await paymentService.upsert(req.body as PaymentParams);
+  console.log(result);
+
   return res.send(result);
 }
 

@@ -3,6 +3,10 @@ import { Router } from 'express';
 
 const orderRouter = Router();
 
-orderRouter.post('/', orderController.post).get('/', orderController.get);
+orderRouter
+  .post('/', orderController.post)
+  .get('/', orderController.get)
+  .get('/:code', orderController.getByCode)
+  .post('/additionals', orderController.postAdditional);
 
 export default orderRouter;

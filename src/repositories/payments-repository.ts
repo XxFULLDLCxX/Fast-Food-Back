@@ -5,7 +5,7 @@ const upsert = (params: Partial<PaymentParams>) => {
   return prisma.payment.upsert({ where: { code: params.code }, create: params, update: params });
 };
 
-const create = (params: PaymentParams) => {
+const create = (params: Partial<PaymentParams>) => {
   return prisma.payment.create({ data: params });
 };
 
