@@ -1,6 +1,6 @@
-import categoriesRepository from '@/repositories/categories-repository';
-import setError from '@/utils/errors';
-import httpStatus from 'http-status';
+import httpStatus from "http-status";
+import categoriesRepository from "@/repositories/categories-repository";
+import setError from "@/utils/errors";
 
 const readMany = async () => {
   const categories = await categoriesRepository.findMany();

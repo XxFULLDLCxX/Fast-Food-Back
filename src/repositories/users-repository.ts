@@ -1,5 +1,5 @@
-import { prisma } from '@/config';
-import { UserParams } from '@/utils/protocols/users';
+import { prisma } from "@/config";
+import { UserParams } from "@/utils/protocols/users";
 
 const upsert = (params: UserParams) => {
   return prisma.user.create({ data: params });

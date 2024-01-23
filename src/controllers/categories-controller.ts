@@ -1,5 +1,5 @@
-import categoryService from '@/services/categories-service';
-import { Request, Response } from 'express';
+import { Request, Response } from "express";
+import categoryService from "@/services/categories-service";
 
 async function getMany(_req: Request, res: Response) {
   const result = await categoryService.readMany();

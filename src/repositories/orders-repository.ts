@@ -1,6 +1,5 @@
-import { prisma } from '@/config';
-import { OrderAdditionalsParams, OrderParams } from '@/utils/protocols/orders';
-import { paymentRepositoy } from './payments-repository';
+import { prisma } from "@/config";
+import { OrderAdditionalsParams, OrderParams } from "@/utils/protocols/orders";
 
 const create = async (params: OrderParams) => {
   return prisma.order.create({ data: params });

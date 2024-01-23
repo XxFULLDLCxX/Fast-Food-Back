@@ -1,6 +1,6 @@
-import { prisma } from '@/config';
-import { UserParams } from '@/utils/protocols/users';
-import { faker } from '@faker-js/faker';
+import { faker } from "@faker-js/faker";
+import { prisma } from "@/config";
+import { UserParams } from "@/utils/protocols/users";
 
 async function findFirst() {
   const result = await prisma.user.findFirst({});
