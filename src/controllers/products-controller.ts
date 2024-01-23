@@ -7,6 +7,11 @@ async function get(req: Request, res: Response) {
   return res.send(result);
 }
 
-const productsController = { get };
+async function getAdditionals(req: Request, res: Response) {
+  const result = await productService.readAdditionals(Number(req.params.id));
+  return res.send(result);
+}
+
+const productsController = { get, getAdditionals };
 
 export default productsController;

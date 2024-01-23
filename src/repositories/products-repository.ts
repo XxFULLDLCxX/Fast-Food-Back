@@ -5,18 +5,23 @@ const findMany = () => {
   return prisma.product.findMany({});
 };
 
-const findManyByCategoryId = (categoryId: number) => {
-  return prisma.product.findMany({ where: { categoryId } });
+const findManyBySearch = (where: { id?: number; name?: { contains: string; mode?: 'insensitive' } }) => {
+  return prisma.product.findMany({ where });
 };
 
-const findManyByCategoryName = (name: string) => {
-  return prisma.product.findMany({ where: { categories: { name } }, include: { categories: true } });
+const findFirstByIdIncludeAdditionals = (id: number) => {
+  return prisma.product.findFirst({ where: { id }, include: { additionals: true } });
 };
 
 const create = (params: ProductParams) => {
   return prisma.category.create({ data: params });
 };
 
-const productsRepository = { findMany, findManyByCategoryId, findManyByCategoryName, create };
+const productsRepository = {
+  findMany,
+  findManyBySearch,
+  findFirstByIdIncludeAdditionals,
+  create,
+};
 
 export default productsRepository;

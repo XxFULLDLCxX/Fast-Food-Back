@@ -11,17 +11,22 @@
     "postlint": "echo 'Well done! Your code has no linting errors.'",
     "dev": "npm run dev:load-envs -- nodemon --exec node -r ts-node/register src/server.ts",
     "dev:migration:run": "npm run dev:load-envs prisma migrate deploy",
-    "dev:migration:generate": "npm run dev:load-envs prisma migrate dev",
+    "dev:migration:generate": "npm run dev:load-envs prisma migrate dev --",
+    "dev:seed": "npm run dev:load-envs prisma db seed",
     "dev:load-envs": "dotenv -e .env.development --",
     "test": "npm run test:load-envs -- jest --passWithNoTests --runInBand --config jest.config.ts",
     "test:migration:run": "npm run test:load-envs prisma migrate deploy",
     "test:migration:generate": "npm run test:load-envs prisma migrate dev",
+    "test:seed": "npm run test:load-envs prisma db seed",
     "test:load-envs": "dotenv -e .env.test --",
     "prepare": "husky install"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "prisma": {
+    "seed": "node -r ts-node/register prisma/seed.ts"
+  },
   "dependencies": {
     "@prisma/client": "^5.7.1",
     "cors": "^2.8.5",
