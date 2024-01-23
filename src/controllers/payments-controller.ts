@@ -1,6 +1,6 @@
-import paymentService from '@/services/payments-service';
-import { PaymentParams } from '@/utils/protocols/payments';
-import { Request, Response } from 'express';
+import { Request, Response } from "express";
+import paymentService from "@/services/payments-service";
+import { PaymentParams } from "@/utils/protocols/payments";
 
 async function get(_req: Request, res: Response) {
   const result = await paymentService.read();

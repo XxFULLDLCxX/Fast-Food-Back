@@ -1,5 +1,5 @@
-import { userRepositoy } from '@/repositories/users-repository';
-import { UserParams } from '@/utils/protocols/users';
+import { userRepositoy } from "@/repositories/users-repository";
+import { UserParams } from "@/utils/protocols/users";
 
 const read = async () => {
   return userRepositoy.findMany();

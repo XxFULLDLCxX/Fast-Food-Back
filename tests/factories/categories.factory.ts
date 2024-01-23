@@ -1,11 +1,11 @@
-import { faker } from '@faker-js/faker';
-import { prisma } from '@/config';
-import { CategoryParams } from '@/utils/protocols/categories';
+import { faker } from "@faker-js/faker";
+import { prisma } from "@/config";
+import { CategoryParams } from "@/utils/protocols/categories";
 
 export function generateCategory() {
   const category: CategoryParams = {
-    image: 'https://fakeimg.pl/200x200/?text=Category&font=lobster',
-    name: faker.commerce.product()
+    image: "https://fakeimg.pl/200x200/?text=Category&font=lobster",
+    name: faker.commerce.product(),
   };
   return category;
 }

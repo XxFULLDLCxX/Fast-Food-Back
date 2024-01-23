@@ -1,4 +1,4 @@
-import { prisma } from '@/config';
+import { prisma } from "@/config";
 
 async function findFirst() {
   const result = await prisma.payment.findFirst({});

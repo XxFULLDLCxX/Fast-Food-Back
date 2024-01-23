@@ -1,6 +1,6 @@
-import userService from '@/services/users-service';
-import { UserParams } from '@/utils/protocols/users';
-import { Request, Response } from 'express';
+import { Request, Response } from "express";
+import userService from "@/services/users-service";
+import { UserParams } from "@/utils/protocols/users";
 
 async function get(_req: Request, res: Response) {
   const result = await userService.read();

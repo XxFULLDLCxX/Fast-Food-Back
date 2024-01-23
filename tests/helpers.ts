@@ -1,4 +1,4 @@
-import { prisma } from '@/config';
+import { prisma } from "@/config";
 
 export default async function cleanDb() {
   await prisma.payment.deleteMany({});

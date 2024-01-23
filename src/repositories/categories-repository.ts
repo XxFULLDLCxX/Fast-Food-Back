@@ -1,12 +1,15 @@
-import { prisma } from '@/config';
-import { CategoryParams } from '@/utils/protocols/categories';
+import { prisma } from "@/config";
+import { CategoryParams } from "@/utils/protocols/categories";
 
 const findMany = () => {
   return prisma.category.findMany({});
 };
 
 const findFirstIncludeProducts = (id: number) => {
-  return prisma.category.findFirst({ where: { id }, include: { products: true } });
+  return prisma.category.findFirst({
+    where: { id },
+    include: { products: true },
+  });
 };
 
 const create = (params: CategoryParams) => {
