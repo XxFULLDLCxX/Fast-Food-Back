@@ -18,6 +18,11 @@ const readByCode = async (code: number) => {
   return result;
 };
 
+const readAdditionals = async (orderId: number) => {
+  const result = orderRepositoy.readAdditionals(orderId);
+  return result;
+}
+
 const create = async (params: OrderParams) => {
   const order = await orderRepositoy.findFirst(params.productId);
   if (order)
@@ -31,6 +36,7 @@ const createAdditional = async (params: OrderAdditionalsParams) => {
 
 const orderService = {
   createAdditional,
+  readAdditionals,
   readByCode,
   create,
   read,
