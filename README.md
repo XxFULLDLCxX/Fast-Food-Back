@@ -1,6 +1,9 @@
 # FastFood-Back
 
 Este é o back-end do FastFood, uma API desenvolvida em Node, TypeScript, Prisma e PostgreSQL, que fornece funcionalidades para auxiliar o FastFood-Front. 
+
+Deploy: https://fastfood-nvrr.onrender.com
+
 O sistema possui as seguintes entidades principais:
 + `Products` - Responsável pelos produtos.
 + `Orders` - Armazena os pedidos dos usuários.
